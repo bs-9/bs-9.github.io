@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>孙渊瑞致王绍婵书</title>
+		<meta name="keywords" content="孙渊瑞致王绍婵书" />
+		<meta name="description" content="孙渊瑞致王绍婵书" />
+		<style type="text/css">
+			@font-face {
+				font-family: digit;
+				src: url('digital-7_mono.ttf') format("truetype");
+			}
+		</style>
+		<link href="css/default.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/garden.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
+		<style type="text/css">
+			audio{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<audio src="music/可爱女人.mp3" id="aud" autoplay="autoplay"
+			controls="controls" preload="auto">
+		</audio>
+		<div id="mainDiv">
+			<div id="content">
+				<div id="code">
+					<span class="comments">/美丽的王绍婵女士：</span><br />
+					<span class="space" /><span class="comments">*/</span><br />
+					<span class="comments">我想和你有一个很长的未来</span><br />我想和你一起得到每个人的祝福<br />
+					<span class="comments">我想陪你度过一生</span><br />不辜负彼此的温暖<br />
+					<span class="space" /><span class="comments">*-->2022—12-31</span><br />
+					<!--<br>
+					 I want to say:<br /> Baby, I love you forever;<br />-->
+				</div>
+				<div id="loveHeart">
+					<canvas id="garden"></canvas>
+					<div id="words">
+						<div id="messages">
+							今天是我们在一起的
+							<div id="elapseClock"></div>
+						</div>
+						<div id="loveu">
+							Good luck will come to you and me<br/>
+							<div class="signature">————孙渊瑞</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.onload=function(){
+				setInterval("toggleSound()",1)
+			}
+		function toggleSound(){
+			var music=document.getElementById("aud");
+			if(music.paused){
+				music.paused=false;
+				music.play();
+			}
+		}
+			var offsetX = $("#loveHeart").width() / 2;
+			var offsetY = $("#loveHeart").height() / 2 - 55;
+			var together = new Date();
+			together.setFullYear(2022, 7, 20);
+			together.setHours(0);
+			together.setMinutes(0);
+			together.setSeconds(0);
+			together.setMilliseconds(0);
+			if(!document.createElement('canvas').getContext) {
+				var msg = document.createElement("div");
+				msg.id = "errorMsg";
+				msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+				document.body.appendChild(msg);
+				$("#code").css("display", "none")
+				$("#copyright").css("position", "absolute");
+				$("#copyright").css("bottom", "10px");
+				document.execCommand("stop");
+			} else {
+				setTimeout(function() {
+					startHeartAnimation();
+				}, 5000);
+
+				timeElapse(together);
+				setInterval(function() {
+					timeElapse(together);
+				}, 500);
+
+				adjustCodePosition();
+				$("#code").typewriter();
+			}
+		</script>
+    </body>
+</html>
